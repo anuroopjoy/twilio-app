@@ -1,0 +1,30 @@
+<div *ngIf="selected === 'SMS'" class="inner">
+  <form>
+    <div class="form-group">
+        <label>Customer number</label>
+        <input name="targetNumber" type="text" [(ngModel)]="targetNumber"/>
+    </div>
+    <div class="form-group">
+        <label>Message</label>
+        <textarea name="message" [(ngModel)]="message"></textarea>
+    </div>
+    <button class="btn btn-primary" (click)="sendSms()">Send SMS</button>
+  </form>
+</div>
+<div *ngIf="selected === 'Voice'" class="inner">
+  <form>
+    <div class="form-group">
+        <label>Customer number</label>
+        <input name="targetNumber" type="text" [(ngModel)]="targetNumber"/>
+    </div>
+    <button class="btn btn-primary" (click)="makeCall()">Make Call</button>
+  </form>
+</div>
+<ng-container *ngIf="selected === 'Email'">
+
+</ng-container>
+<ng-container *ngIf="selected === 'Video'">
+  <iframe  height={{innerHeight}} width="100%"
+  allow="camera *; microphone *"
+  src="https://video-app-7644-dev.twil.io?passcode=6497297644"></iframe>
+</ng-container>
